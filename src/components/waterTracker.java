@@ -48,6 +48,21 @@ public class WaterTracker {
         return this.totalWaterConsumed;
     }
 
+    // Get name of current hydration goal
+    public final String getGoalName() {
+        return this.goalName;
+    }
+
+    // Get hydration goal amount in ounces
+    public final double getGoalAmount() {
+        return this.goalAmount;
+    }
+
+    // Gets map of water sources and their ounces
+    public final Map<String, Double> getWaterSources() {
+        return this.waterSources;
+    }
+
     // Set a hydration goal
     public final void setGoal(String goalName, double goalAmount) {
         this.goalName = goalName;
