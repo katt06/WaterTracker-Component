@@ -37,3 +37,28 @@ the following form: YYYY.0M.0D.
 - Created a heirarchy diagram for WaterTracker
 - Designed kernal and enhanced interfaces
 - Documented each of the methods
+
+## [2025.04.07]
+
+### Added
+
+- Designed abstract class for WaterTracker component
+
+### Updated
+
+- Implemented every secondary method inside the abstract class
+- Used kernal and Standard methods to implement a series of secondary methods
+
+## [2025.04.08]
+
+### Added
+
+- Designed kernel implementation for WaterTracker component
+
+### Updated
+
+- Selected a reasonable representation for a kernel implementation-
+- Provided a representation invariant (i.e., convention) and abstraction
+   function (i.e., correspondence) for a kernel implementation
+- Carried out kernel and Standard method implementations as well as constructor
+   implementations given a contract, a convention, and a correspondence

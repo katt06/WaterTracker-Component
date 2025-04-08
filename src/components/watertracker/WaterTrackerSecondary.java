@@ -1,4 +1,4 @@
-package components;
+package components.watertracker;
 
 import java.util.Objects;
 
@@ -44,23 +44,6 @@ public abstract class WaterTrackerSecondary implements WaterTracker {
         } else {
             System.out.println("Invalid Source");
         }
-    }
-
-    /*
-     * Sets a hydration goal
-     *
-     * @param goalName {@code String}
-     *
-     * @param goalAmount {@code double}
-     *
-     * @ensures this.goalName = goalName && this.goalAmount = goalAmount
-     */
-    @Override
-    public final void setGoal(String goalName, double goalAmount) {
-        // Update goal fields directly
-        this.setGoalName(goalName);
-        this.setGoalAmount(goalAmount);
-        System.out.println("Goal: " + goalName + " - " + goalAmount + " oz");
     }
 
     /*
