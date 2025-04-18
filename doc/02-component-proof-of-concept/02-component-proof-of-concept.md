@@ -115,6 +115,8 @@ Below is further rationale/explanation for the rubric items above:
 > we'll want a branch that you can later make a pull request from with all
 > your changes.
 
+I chose idea #3, WaterTracker. This is a component designed to track water consumption and hydration goals. This design was much simplier and less complex than the other two ideas of a component that models the customizable soup or a component that models the organization of webtoons. I had a solid separation of kernal and standard methods where the data collection is built in the kernal and data analystics on top. Likewise, the idea of tracking hydration is relatable and useful which made the component more meaningful and engaging. Another important aspect was how buildable the concept was. WaterTracker allows for future enhancements like complex tracking features or integrating with other components.
+
 ## Assignment Tasks
 
 As stated previously, your goal with this assignment is to produce a Java
@@ -139,8 +141,6 @@ The following sections detail everything that you should do once you've
 completed the assignment.
 
 ### Changelog
-
-<!-- TODO: update CHANGELOG then delete this comment -->
 
 At the end of every assignment, you should update the
 [CHANGELOG.md](../../CHANGELOG.md) file found in the root of the project folder.
@@ -175,8 +175,6 @@ request merge (or at least tag your commits). This is not required.
 
 ### Submission
 
-<!-- TODO: read the submission instructions then delete this comment -->
-
 Assuming that your project is in a GitHub repo somewhere and your changes are on
 a proof-of-concept branch, then what we'll want you to do is create a pull
 request of all your changes. Pull requests are pretty easy to make if you're
@@ -197,8 +195,6 @@ recommend keeping the pull request open until at least a peer has had a chance
 to look over your changes. Otherwise, you defer needed changes to later pull
 requests, which could sacrifice the overall quality of your work or result in
 major rework.
-
-<!-- TODO: paste the URL to Carmen then delete this comment -->
 
 ### Peer Review
 
@@ -228,8 +224,6 @@ table).
 If you'd like to give feedback for this assignment (or any assignment, really),
 make use of [this survey][survey]. Your feedback helps make assignments
 better for future students.
-
-<!-- TODO: follow the link to share your feedback then delete this comment -->
 
 [pottery-fails]: https://www.youtube.com/shorts/Kqb9l113F_0?feature=share
 [survey]: https://forms.gle/dumXHo6A4Enucdkq9
