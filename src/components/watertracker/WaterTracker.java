@@ -1,3 +1,4 @@
+package components.watertracker;
 
 import java.util.HashMap;
 import java.util.Map;

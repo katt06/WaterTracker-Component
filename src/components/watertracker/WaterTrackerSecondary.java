@@ -8,10 +8,6 @@ import java.util.Objects;
  */
 public abstract class WaterTrackerSecondary implements WaterTracker {
 
-    // Constructor for secondary class
-    public WaterTrackerSecondary() {
-    }
-
     /*
      * Adds a new water source with specified paramters
      *

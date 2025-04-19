@@ -46,7 +46,6 @@ the following form: YYYY.0M.0D.
 
 ### Updated
 
-- Implemented every secondary method inside the abstract class
 - Used kernal and Standard methods to implement a series of secondary methods
 
 ## [2025.04.08]
@@ -62,3 +61,14 @@ the following form: YYYY.0M.0D.
    function (i.e., correspondence) for a kernel implementation
 - Carried out kernel and Standard method implementations as well as constructor
    implementations given a contract, a convention, and a correspondence
+
+## [2025.04.18]
+
+### Added
+
+- Designed test suite for WaterTracker component
+- Designed two different use cases for WaterTracker component
+
+### Updated
+
+- Changed design to include ...
