@@ -46,7 +46,6 @@ the following form: YYYY.0M.0D.
 
 ### Updated
 
-- Implemented every secondary method inside the abstract class
 - Used kernal and Standard methods to implement a series of secondary methods
 
 ## [2025.04.08]
