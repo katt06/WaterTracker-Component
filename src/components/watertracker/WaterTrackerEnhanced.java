@@ -1,8 +1,8 @@
-package components;
+package components.watertracker;
 
 //Enhanced interface (extends on the kernal functionality)
-public interface WaterTracker extends WaterTrackerKernal {
-    /*
+public interface WaterTrackerEnhanced extends WaterTrackerKernal {
+    /**
      * Adds a new water source with specified paramters
      *
      * @param source {@code String} the name of the water source
@@ -13,27 +13,16 @@ public interface WaterTracker extends WaterTrackerKernal {
      */
     void addWaterSource(String source, double ounces);
 
-    /*
+    /**
      * Removes an existing water source
      *
      * @param source {@code String} the name of the water source
      *
      * @ensures source is removed from waterSources
      */
-    void removeWaterSouce(String source);
+    void removeWaterSource(String source);
 
-    /*
-     * Sets a hydration goal
-     *
-     * @param goalName {@code String}
-     *
-     * @param goalAmount {@code double}
-     *
-     * @ensures this.goalName = goalName && this.goalAmount = goalAmount
-     */
-    void setGoal(String goalName, double goalAmount);
-
-    /*
+    /**
      * Tracks progress toward the specificed hydration goal
      *
      * @param goalName {@code String}

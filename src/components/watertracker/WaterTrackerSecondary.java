@@ -1,6 +1,8 @@
 package components.watertracker;
 
 import java.util.Objects;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Abstract class that implements secondary methods for the WaterTracker. This
