@@ -18,7 +18,18 @@ public class WaterTrackerTest {
         return new WaterTracker1L();
     }
 
-    //tests for addWaterSource, removeWaterSource, drank, getWater, getWaterName, getWaterAmount, getWaterSources, setGoal, trackGoal
+    /*
+     * Tests for setGoal
+     */
+
+    @Test
+    public void testSetGoalZeroAmount() {
+        WaterTracker1L tracker = this.createTestInstance();
+        tracker.setGoal("Zero Goal", 0.0);
+        assertEquals("Zero Goal", tracker.getGoalName());
+        assertEquals(0.0, tracker.getGoalAmount(), 0.01);
+    }
+
     @Test
     public void testSetGoal() {
         WaterTracker1L tracker = this.createTestInstance();
@@ -29,6 +40,19 @@ public class WaterTrackerTest {
         assertEquals(trackerCopy.getGoalName(), trackerCopy.getGoalName()); // Ensure trackerCopy remains unchanged
     }
 
+    /*
+     * Tests for drank
+     */
+
+    @Test
+    public void testDrankZeroAmountSource() {
+        WaterTracker1L tracker = this.createTestInstance();
+        tracker.setGoal("Daily Hydration", 64.0);
+        tracker.getWaterSources().put("EmptyBottle", 0.0);
+        tracker.drank("EmptyBottle");
+        assertEquals(64.0, tracker.getGoalAmount(), 0.01); // Goal remains unchanged
+    }
+
     @Test
     public void testDrank() {
         WaterTracker1L tracker = this.createTestInstance();
@@ -37,7 +61,29 @@ public class WaterTrackerTest {
         tracker.getWaterSources().put("Bottle", 16.0);
         tracker.drank("Bottle");
         assertEquals(48.0, tracker.getGoalAmount(), 0.01);
-        assertEquals(trackerCopy.getGoalAmount(), trackerCopy.getGoalAmount());
+    }
+
+    @Test
+    public void testDrankMultipleSources() {
+        WaterTracker1L tracker = this.createTestInstance();
+        tracker.setGoal("Daily Hydration", 64.0);
+        tracker.getWaterSources().put("Bottle", 16.0);
+        tracker.getWaterSources().put("Glass", 8.0);
+        tracker.drank("Bottle");
+        tracker.drank("Glass");
+        assertEquals(40.0, tracker.getGoalAmount(), 0.01);
+    }
+
+    /*
+     * Tests for addWaterSource
+     */
+
+    @Test
+    public void testAddWaterSourceZero() {
+        WaterTracker1L tracker = this.createTestInstance();
+        tracker.getWaterSources().put("EmptyBottle", 0.0);
+        assertTrue(tracker.getWaterSources().containsKey("EmptyBottle"));
+        assertEquals(0.0, tracker.getWaterSources().get("EmptyBottle"), 0.01);
     }
 
     @Test
@@ -48,6 +94,17 @@ public class WaterTrackerTest {
         assertEquals(16.0, tracker.getWaterSources().get("Bottle"), 0.01);
     }
 
+    /*
+     * Tests for removeWaterSource
+     */
+
+    @Test
+    public void testRemoveNonExistentWaterSource() {
+        WaterTracker1L tracker = this.createTestInstance();
+        tracker.getWaterSources().remove("NonExistentSource");
+        assertTrue(tracker.getWaterSources().isEmpty());
+    }
+
     @Test
     public void testRemoveWaterSource() {
         WaterTracker1L tracker = this.createTestInstance();
@@ -55,6 +112,10 @@ public class WaterTrackerTest {
         tracker.getWaterSources().remove("Bottle");
         assertTrue(!tracker.getWaterSources().containsKey("Bottle"));
     }
+
+    /*
+     * Tests for trackGoal
+     */
 
     @Test
     public void testTrackGoal() {
@@ -66,6 +127,23 @@ public class WaterTrackerTest {
     }
 
     @Test
+    public void testTrackGoalMultipleSources() {
+        WaterTracker1L tracker = this.createTestInstance();
+        tracker.setGoal("Daily Hydration", 64.0);
+        tracker.getWaterSources().put("Bottle", 32.0);
+        tracker.getWaterSources().put("Glass", 16.0);
+        tracker.getWaterSources().put("Cup", 16.0);
+        tracker.drank("Bottle");
+        tracker.drank("Glass");
+        tracker.drank("Cup");
+        assertEquals(0.0, tracker.getGoalAmount(), 0.01); // Goal is exactly met
+    }
+
+    /*
+     * Tests for getWater
+     */
+
+    @Test
     public void testGetWaterSources() {
         WaterTracker1L tracker = this.createTestInstance();
         WaterTracker1L trackerCopy = this.createTestInstance();
@@ -75,12 +153,20 @@ public class WaterTrackerTest {
                 trackerCopy.getWaterSources().size()); // Ensure trackerCopy remains unchanged
     }
 
+    /*
+     * Test for getWaterName
+     */
+
     @Test
     public void testGetWaterName() {
         WaterTracker1L tracker = this.createTestInstance();
         tracker.setGoal("Daily Hydration", 64.0);
         assertEquals("Daily Hydration", tracker.getGoalName());
     }
+
+    /*
+     * Test for getWaterAmount
+     */
 
     @Test
     public void testGetWaterAmount() {
@@ -89,6 +175,9 @@ public class WaterTrackerTest {
         assertEquals(64.0, tracker.getGoalAmount(), 0.01);
     }
 
+    /*
+     * Test for getWater
+     */
     @Test
     public void testGetWater() {
         WaterTracker1L tracker = this.createTestInstance();
@@ -97,9 +186,3 @@ public class WaterTrackerTest {
     }
 
 }
-
-/*
- * @Test public void testGetXOne() { NaturalNumber n = new NaturalNumber1L();
- * NaturalNumber nCopy = new NaturalNumber1L(); assertEquals(true, n.isZero());
- * assertEquals(nCopy, n); }
- */

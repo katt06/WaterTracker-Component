@@ -71,4 +71,7 @@ the following form: YYYY.0M.0D.
 
 ### Updated
 
-- Changed design to include ...
+- Design a test plan for a software sequence component encompassing all methods
+- Provide example use cases of a software sequence component, including daily and weekly water tracking
+- Reflected on the software development process and personal growth
+- Fixed bugs and improved other components

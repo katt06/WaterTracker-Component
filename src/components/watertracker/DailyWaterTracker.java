@@ -2,10 +2,9 @@ package components.watertracker;
 
 public class DailyWaterTracker {
     public static void main(String[] args) {
-        // Create a new WaterTracker instance
         WaterTracker1L tracker = new WaterTracker1L();
 
-        // Set a daily hydration goal
+        // Set daily hydration goal
         tracker.setGoal("Daily Hydration", 64.0);
 
         // Add water sources
