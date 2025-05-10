@@ -61,8 +61,6 @@ project. Specifically, students should be able to:
 
 ## Assignment Rubric: 10 Points
 
-<!-- TODO: read the assignment rubric then delete this comment -->
-
 Again, to be completely transparent, most of the portfolio project, except the
 final submission, is designed as a formative assessment. Formative assessments
 are meant to provide ongoing feedback in the learning process. Therefore,
@@ -188,12 +186,14 @@ will likely refine your design to make your implementation easier to use.
   - **Description**:
     - The purpose of this component is to model the cusotmization of different soup flavours. The intent with this design is to keep a simple kernal that provides the minimum steps to make a bland soup. Then, we provide more complex steps to make more flavors in the secondary interface.
   - **Kernel Methods**:
-    - `void chop(T k)`: adds flavor to `this`
-    - `T dump()`: removes flavor from `this` and returns the flavor
-    - `boolean isEmpty()`: reports whether `this` (soup bowl) is empty
+    - `void addIngredient(String k)`: adds flavor to soup
+    - `String removeIngredient()`: removes flavor from soup and returns the flavor of last added ingredient
+    - `boolean isEmpty()`: reports whether soup bowk is empty
   - **Secondary Methods**:
-    - `void stir(Soup n)`: adds `n` to `this`
-    - `Soup serve(Soup n)`: removes `n` from `this`, returning finished Soup
+    - `void mix()`: mixes the soup to evenly distribute ingredients
+    - `String taste()`: returns a description of the soup's flavor based on its ingredients
+    - `void combine(Soup otherSoup)`: combines the ingredients of another soup into this soup
+    - `Soup serve()`: finalizes the soup and returns as a finished product
   - **Additional Considerations** (*note*: "I don't know" is an acceptable
     answer for each of the following questions):
     - Would this component be mutable? Answer and explain:
@@ -201,27 +201,27 @@ will likely refine your design to make your implementation easier to use.
         mutate `this`.
     - Would this component rely on any internal classes (e.g., `Map.Pair`)?
       Answer and explain:
-      - No, Soup relies on Soups
+      - No, Soup relies on lists or stacks to manage ingredients
     - Would this component need any enums or constants (e.g.,
       `Program.Instruction`)? Answer and explain:
-      - IDK
+      - perhaps, for already defined flavor profiles or ingredient categories
     - Can you implement your secondary methods using your kernel methods?
       Answer, explain, and give at least one example:
-      - Yes, for example, `serve` could be implemented with `dump`
+      - Yes, for example, `serve` could be implemented with `addIngredient`to add all ingredients from another soup
 
 - Component Design #2: Webtoon
   - **Description**:
     - The purpose of this component is to model the organization of webtoons. The intent with this design is to keep a simple kernal that provides the minimum functions for a library. Then, we provide more complex features for better navigation in the secondary interface.
   - **Kernel Methods**:
-    - `void bookmark(T x)`: adds x to the front of `this`
-    - `T drop()`: removes and returns the entry at the front
-    - `int webtoons()`: reports how many webtoons in `this`
+    - `boolean isScroll()`: reports whether the reading style is scrolling
+    - `void drop()`: removes and returns the entry at the front of the webtoon list
+    - `int webtoons()`: reports how many webtoons in the webtoon list
   - **Secondary Methods**:
-    - `T favorite()`: reports the front of 'this';
-    - `T rate()`: reports the rating of 'this';
-    - `void style()`: swtich from scrolling to swiping;
-    - `boolean isScroll()`: reports whether the reading style is scrolling;
-    - `void sort(Comparator<T> order)`: sorts `this` according to the ordering provided by the compare method from order.
+    - `void bookmark(String x)`: adds a bookmark to the front of the webtoon list
+    - `String favorite()`: reports the front of the webtoon list;
+    - `double rate()`: reports the rating of the webtoon list;
+    - `void readingStyle()`: swtich from scrolling to swiping;
+    - `void sort(Comparator<String> order)`: sorts the webtoon list according to the ordering provided by the compare method from order.
   - **Additional Considerations** (*note*: "I don't know" is an acceptable
     answer for each of the following questions):
     - Would this component be mutable? Answer and explain:
@@ -231,7 +231,7 @@ will likely refine your design to make your implementation easier to use.
       - Not right now, but after more time and thought, Webtoons would rely on internal classes to hold ratings, reading styles, etc.
     - Would this component need any enums or constants (e.g.,
       `Program.Instruction`)? Answer and explain:
-      - IDK, maybe Webtoons would have a base rating or reading style?
+      - Maybe Webtoons would have a base rating or reading style?
     - Can you implement your secondary methods using your kernel methods?
       Answer, explain, and give at least one example:
       - yes, `favorite` could be implemented using `drop` since both return the entry at the front

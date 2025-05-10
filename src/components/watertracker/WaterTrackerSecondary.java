@@ -1,16 +1,14 @@
 package components.watertracker;
 
 import java.util.Objects;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Abstract class that implements secondary methods for the WaterTracker. This
  * class provides enhanced functionality built upon the kernel interface.
  */
 public abstract class WaterTrackerSecondary implements WaterTracker {
-
-    // Constructor for secondary class
-    public WaterTrackerSecondary() {
-    }
 
     /*
      * Adds a new water source with specified paramters

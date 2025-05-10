@@ -3,10 +3,12 @@ package components.watertracker;
 import java.util.HashMap;
 import java.util.Map;
 
-/*
- * {@code WaterTracker1L} is a kernel implementation of the WaterTracker component.
- * It uses a {@code Map} to represent water sources and tracks the hydration goal
- * using a {@code String} and a {@code double}.
+/**
+ * @code WaterTracker1L} is a kernel implementation of the WaterTracker
+ *       component.
+ *
+ *       It uses a {@code Map} to represent water sources and tracks the
+ *       hydration goal using a {@code String} and a {@code double}.
  *
  *
  * @convention <pre>
@@ -76,19 +78,21 @@ public class WaterTracker1L extends WaterTrackerSecondary {
      * Kernel methods ---------------------------------------------------------
      */
 
-    /*
+    /**
      * Logs water consumption from a specified source.
      *
-     * @param source the name of the water source as a {@code String}
-     * 
-     * @throws AssertionError if {@code source} is null, empty, or not in the
-     * water sources map
-     * 
+     * @param source
+     *            the name of the water source as a {@code String}
+     *
+     * @throws AssertionError
+     *             if {@code source} is null, empty, or not in the water sources
+     *             map
+     *
      * @ensures <pre> if source is in DOMAIN(waterSources) then
      * totalWaterConsumed = #totalWaterConsumed + waterSources[source] </pre>
      */
     @Override
-    public void drank(String source) {
+    public final void drank(String source) {
         assert source != null && !source
                 .isEmpty() : "Violation of: source is not null or empty";
         assert this.waterSources.containsKey(
@@ -100,17 +104,17 @@ public class WaterTracker1L extends WaterTrackerSecondary {
         System.out.println("Drank " + ounces + " oz from " + source);
     }
 
-    /*
+    /**
      * Gets the map of water sources.
      *
      * @return the {@code Map} of water sources and their respective amounts
      */
     @Override
     public Map<String, Double> getWaterSources() {
-        return this.waterSources;
+        return Map.copyOf(this.waterSources);
     }
 
-    /*
+    /**
      * Gets the name of the hydration goal.
      *
      * @return the name of the hydration goal as a {@code String}
@@ -120,7 +124,7 @@ public class WaterTracker1L extends WaterTrackerSecondary {
         return this.goalName;
     }
 
-    /*
+    /**
      * Gets the target hydration goal amount.
      *
      * @return the hydration goal amount as a {@code double}
@@ -130,14 +134,17 @@ public class WaterTracker1L extends WaterTrackerSecondary {
         return this.goalAmount;
     }
 
-    /*
+    /**
      * Sets the hydration goal.
      *
-     * @param goalName the name of the hydration goal as a {@code String}
-     * 
-     * @param goalAmount the target hydration goal amount as a {@code double}
-     * 
-     * @throws AssertionError if {@code goalName} is null or empty or if {@code
+     * @param goalName
+     *            the name of the hydration goal as a {@code String}
+     *
+     * @param goalAmount
+     *            the target hydration goal amount as a {@code double}
+     *
+     * @throws AssertionError
+     *             if {@code goalName} is null or empty or if {@code
      * goalAmount} is negative
      */
     @Override
@@ -149,7 +156,7 @@ public class WaterTracker1L extends WaterTrackerSecondary {
         this.goalAmount = goalAmount;
     }
 
-    /*
+    /**
      * Standard methods -------------------------------------------------------
      */
 
@@ -164,7 +171,7 @@ public class WaterTracker1L extends WaterTrackerSecondary {
         this.createNewRep();
     }
 
-    /*
+    /**
      * Creates a new instance of {@code WaterTracker1L}.
      *
      * @return a new instance of {@code WaterTracker1L}
@@ -174,15 +181,16 @@ public class WaterTracker1L extends WaterTrackerSecondary {
         return new WaterTracker1L();
     }
 
-    /*
+    /**
      * Transfers the state from the given {@code WaterTracker1L} to this
      * instance.
      *
-     * @param source the source {@code WaterTracker1L} to transfer from
-     * 
+     * @param source
+     *            the source {@code WaterTracker1L} to transfer from
+     *
      * @requires source is not null and source is of the same dynamic type as
-     * this
-     * 
+     *           this
+     *
      * @ensures <pre> this = #source and source = {} </pre>
      */
     @Override
